@@ -1,0 +1,109 @@
+========================================================================
+ PROTOCOLO 27001 · EL CASO DE JUAN
+ Juego narrativo sobre ISO/IEC 27001:2022 + consecuencias legales
+========================================================================
+
+Versión: 1.0
+Fecha: 18 de noviembre de 2026
+Archivo principal: El caso de Juan - Protocolo 27001.html
+Plataforma: cualquier navegador moderno (Chrome, Edge, Firefox, Safari)
+Dependencias: ninguna. Funciona 100 % sin conexión.
+
+------------------------------------------------------------------------
+ 1. CÓMO JUGAR
+------------------------------------------------------------------------
+1. Abre con doble clic "El caso de Juan - Protocolo 27001.html".
+2. Pulsa "Comenzar la misión". El audio se activa con esa primera
+   interacción, tal como exigen los navegadores.
+3. Elige una opción en cada escenario. También puedes usar las teclas
+   1, 2, 3 y 4.
+4. Si aciertas: feedback verde, puntos y evidencia científica.
+   Si fallas: alarma, flash rojo, sirena y expediente de incumplimiento.
+5. En el expediente decides entre:
+   A) Reivindicarse  → acción correctiva (Cláusula 10), +50 puntos.
+   B) Enfrentar la ley → expediente RGPD/NIS2, 0 puntos y no conformidad
+      mayor permanente.
+6. El botón 🔊/🔇 silencia todo. La preferencia se guarda en el navegador
+   (localStorage) y se mantiene al recargar.
+
+El botón "Centro de inteligencia" abre en cualquier momento:
+  · los 93 controles del Anexo A,
+  · un ejemplo completo de Declaración de Aplicabilidad (DOI),
+  · las cláusulas 4–10 del SGSI,
+  · las 57 fuentes del CSV con abstract, método, resultados y conclusiones.
+
+------------------------------------------------------------------------
+ 2. CONTENIDO
+------------------------------------------------------------------------
+· 10 escenarios ramificados en 4 actos: gobierno, personas y cadena de
+  suministro, operación/tecnología y mejora/certificación.
+· 4 opciones por escenario, mapeadas a controles del Anexo A, cláusulas
+  del SGSI o conceptos del DOI.
+· Puntuación máxima: 1000 puntos (100 por decisión óptima, 65 por válida
+  parcial, 50 por corrección, 0 por enfrentar la ley).
+· Contadores visibles: decisiones correctas, reivindicaciones y casos
+  "enfrentar la ley"; se reflejan en el informe final.
+· Informe final descargable en .txt con decisiones, referencias, acción
+  correctiva y fuentes citadas.
+· Audio generado con Web Audio API: sirena sawtooth con LFO, impacto,
+  acorde de éxito y clics de interfaz. Sin archivos de sonido externos.
+· Diseño responsive con dashboard, glassmorphism, partículas y radar.
+
+------------------------------------------------------------------------
+ 3. ESTRUCTURA DEL PAQUETE
+------------------------------------------------------------------------
+Protocolo-27001/
+├─ El caso de Juan - Protocolo 27001.html   Juego completo (autocontenido)
+├─ LEEME.txt                                Este archivo
+├─ datos/
+│  └─ compare-table-con_tablas.csv          Dataset original (57 registros)
+└─ codigo-fuente/
+   ├─ head.html        Estructura HTML + todo el CSS + cabecera técnica
+   ├─ sources.js      57 fuentes normalizadas + síntesis en español
+   ├─ controls.js     93 controles del Anexo A + 4 temas
+   ├─ data.js         Escenarios, perfiles legales, DOI y cláusulas
+   ├─ logic1.js       Estado, audio, inicio, tablero y opciones
+   ├─ logic2.js       Feedback, alarma, expediente y acción correctiva
+   ├─ logic3.js       Informe final, biblioteca, fondo y arranque
+   ├─ insights.json   Síntesis y etiquetas por fuente
+   ├─ construir.js    Reconstruye el HTML final
+   └─ validar.js      Comprueba integridad de datos
+
+El HTML final ya está construido. Las partes de "codigo-fuente" solo son
+necesarias si quieres modificar el juego y volver a generarlo.
+
+------------------------------------------------------------------------
+ 4. RECONSTRUIR Y VALIDAR (opcional)
+------------------------------------------------------------------------
+Requiere Node.js 18 o superior. Desde la carpeta del paquete:
+
+   node codigo-fuente/validar.js
+   node codigo-fuente/construir.js
+
+"validar.js" comprueba 57 fuentes, 93 controles, 10 escenarios, DOI,
+cláusulas y que cada opción apunte a un control y perfil legal válidos.
+"construir.js" une las partes y sobrescribe el HTML principal.
+
+------------------------------------------------------------------------
+ 5. DATOS Y METODOLOGÍA
+------------------------------------------------------------------------
+· El CSV contenía 57 registros bibliográficos. Se conservaron todos los
+  campos (DOI, autores, año, revista, abstract, método, resultados,
+  conclusiones, editorial, acceso abierto) y se añadió una síntesis en
+  español y una etiqueta temática por fuente.
+· Los 93 controles, el DOI y las cláusulas 4–10 se elaboraron a partir de
+  ISO/IEC 27001:2022 e ISO/IEC 27002:2022.
+· Cada escenario cita entre 2 y 4 fuentes del CSV mediante chips [n].
+· Las cifras legales son los máximos regulatorios aplicables (RGPD:
+  hasta 20 M€ o 4 %; NIS2: hasta 10 M€ o 2 %) y dependen de cada
+  jurisdicción y de las circunstancias del caso.
+
+------------------------------------------------------------------------
+ 6. AVISO
+------------------------------------------------------------------------
+Material educativo. No sustituye asesoría legal, una auditoría formal ni
+la lectura de las normas ISO/IEC. "Vitalis Nova" y "Juan" son ficticios.
+
+Privacidad: el juego no envía datos a ningún servidor, no usa cookies de
+terceros y solo guarda la preferencia de silencio en localStorage.
+========================================================================
